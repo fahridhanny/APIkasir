@@ -25,6 +25,7 @@ class MenuController extends Controller
     public function menuByCategory($id_category){
         $menuByCategory = Menu::where('id_category', $id_category)->get();
         $category = Category::where('id', $id_category)->first();
+        
         if(empty($category)){
             return response()->json([
                 'message' => 'Category dengan id '.$id_category.' tidak ada'
